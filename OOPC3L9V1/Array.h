@@ -4,7 +4,7 @@
 
 class Array {
 	int size;
-	int* element;
+	int* element = 0;
 public:
 	Array(int size);
 	Array(const Array& arr);

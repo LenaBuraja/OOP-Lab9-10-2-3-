@@ -17,6 +17,10 @@ Array::Array() : Array(0) {
 
 }
 
+Array::~Array() {
+	delete[] element;
+}
+
 void Array::setSize(int newSize) {
 	int *newArr = new int[newSize];
 	int minSize = (size < newSize) ? size : newSize;
@@ -40,8 +44,4 @@ int Array::getElement(int index) const {
 
 int Array::getSize() const {
 	return size;
-}
-
-Array::~Array() {
-	delete element;
 }
