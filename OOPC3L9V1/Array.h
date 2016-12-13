@@ -7,13 +7,13 @@ class Array {
 	int* element;
 public:
 	Array(int size);
-	Array(Array& arr);
+	Array(const Array& arr);
 	Array();
 
 	void setSize(int newSize);
 	void setElement(int index, int value);
-	int getSize();
-	int getElement(int index);
+	int getSize() const;
+	int getElement(int index) const;
 	~Array();
 
 	friend std::ostream &operator<< (std::ostream& out, Array& arr) {
@@ -28,7 +28,7 @@ public:
 		return out;
 	}
 
-	friend std::istream &operator>> (std::istream& in, Array& arr) {
+	friend std::istream &operator >> (std::istream& in, Array& arr) {
 		for (int i = 0; i < arr.getSize(); i++) {
 			int value;
 			in >> value;
