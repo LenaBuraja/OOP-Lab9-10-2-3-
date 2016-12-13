@@ -40,7 +40,7 @@ int main() {
 		std::cout << &newStack->top() << std::endl;
 		newStack->pop();
 	}
-	
+
 
 	return 0;
 }
