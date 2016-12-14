@@ -7,7 +7,7 @@ Array::Array(int size) {
 	setSize(size);
 }
 
-Array::Array(Array& arr) : Array(arr.getSize()) {
+Array::Array(const Array& arr) : Array(arr.getSize()) {
 	for (int i = 0; i < getSize(); i++) {
 		setElement(i, arr.getElement(i));
 	}
@@ -15,6 +15,10 @@ Array::Array(Array& arr) : Array(arr.getSize()) {
 
 Array::Array() : Array(0) {
 
+}
+
+Array::~Array() {
+	delete[] element;
 }
 
 void Array::setSize(int newSize) {
@@ -34,14 +38,10 @@ void Array::setElement(int index, int value) {
 	}
 }
 
-int Array::getElement(int index) {
+int Array::getElement(int index) const {
 	return element[index];
 }
 
-int Array::getSize() {
+int Array::getSize() const {
 	return size;
-}
-
-Array::~Array() {
-	delete element;
 }
