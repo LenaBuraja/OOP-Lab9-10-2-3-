@@ -3,7 +3,7 @@
 
 Array::Array(int size) {
 	this->size = 0;
-	element = new int[this->size];
+	element = std::shared_ptr<int>(new int[this->size]);
 	setSize(size);
 }
 
@@ -18,28 +18,28 @@ Array::Array() : Array(0) {
 }
 
 Array::~Array() {
-	delete[] element;
+	//delete[] element;
 }
 
 void Array::setSize(int newSize) {
 	int *newArr = new int[newSize];
 	int minSize = (size < newSize) ? size : newSize;
 	for (int i = 0; i < minSize; i++) {
-		newArr[i] = element[i];
+		newArr[i] = element.get()[i];
 	}
-	delete[] element;
 	size = newSize;
-	element = newArr;
+	//delete[] element;
+	element = std::shared_ptr<int>(newArr);
 }
 
 void Array::setElement(int index, int value) {
 	if (index >= 0 || index < size) {
-		element[index] = value;
+		element.get()[index] = value;
 	}
 }
 
 int Array::getElement(int index) const {
-	return element[index];
+	return element.get()[index];
 }
 
 int Array::getSize() const {

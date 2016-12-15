@@ -1,10 +1,11 @@
 #pragma once
 #include <ostream>
 #include <istream>
+#include <memory>
 
 class Array {
 	int size;
-	int* element = 0;
+	std::shared_ptr<int> element = nullptr;
 public:
 	Array(int size);
 	Array(const Array& arr);
