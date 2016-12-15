@@ -27,7 +27,7 @@ void Array::setSize(int newSize) {
 	for (int i = 0; i < minSize; i++) {
 		newArr[i] = element[i];
 	}
-	delete element;
+	delete[] element;
 	size = newSize;
 	element = newArr;
 }
